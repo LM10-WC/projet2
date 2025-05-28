@@ -1,0 +1,560 @@
+<p><strong>Institut Universitaire des Sciences</strong></p>
+<p><strong>Faculté des Sciences et Technologies</strong></p>
+<p><strong>Projet dans le cadre du cours de Réseaux 2</strong></p>
+<p><strong>Simulation d'un Réseau IoT avec Cisco Packet
+Tracer</strong></p>
+<p><strong>Préparé par Wendy COLAS</strong></p>
+<p><strong>A l’attention de Monsieur Ismaël SAINT AMOUR</strong></p>
+<p><strong>Mai 2025</strong></p>
+<ol type="I">
+<li><strong>Introduction</strong></li>
+</ol>
+<p>Avec l’évolution rapide des technologies, l’internet des objets (IoT)
+joue un rôle essentiel dans la connectivité et l’automatisation des
+systèmes. Les appareils connectés échangent des données en temps réel,
+facilitant ainsi de nombreuses applications, que ce soit dans la
+domotique, l’industrie ou la gestion des infrastructures
+intelligentes.</p>
+<p>Ce projet vise à simuler un réseau IoT en utilisant Cisco Packet
+Tracer, un outil puissant permettant de créer et analyser des
+architectures réseau. Grâce à cette simulation, nous pouvons observer le
+fonctionnement des périphériques IoT, étudier la communication entre eux
+et comprendre les protocoles qui assurent leur interconnexion.</p>
+<p>Dans ce rapport, nous allons détailler les étapes de conception du
+réseau, les dispositifs utilisés ainsi que les résultats obtenus.
+L’objectif est de mieux comprendre le déploiement d’un réseau IoT et ses
+implications pratiques.</p>
+<p>Dans un contexte de modernisation des infrastructures hôtelières,
+l'intégration de technologies intelligentes devient un levier essentiel
+pour garantir sécurité, confort et efficacité. Le projet intitulé
+« Simulation d'un réseau IoT dans Cisco Packet Tracer » s'inscrit dans
+cette dynamique en proposant la configuration d'un réseau connecté
+adapté à un environnement hôtelier. L'architecture retenue repose sur
+une structure simplifiée composée de trois pôles : une chambre client,
+une chambre pour l'agent de sécurité et une infrastructure centrale.
+Grâce à une série de dispositifs IoT (capteurs de fumée, détecteurs de
+mouvement, caméras, alarmes, etc.), les différentes zones communiquent
+entre elles. Ainsi, en cas d'incident dans la chambre du client, comme
+la détection de fumée, une alerte est immédiatement transmise à l'agent
+de sécurité via le réseau, permettant une intervention rapide. Ce projet
+illustre comment les technologies IoT peuvent être exploitées pour
+renforcer la surveillance et automatiser les réponses aux situations
+critiques dans un cadre hôtelier.</p>
+<ol type="I">
+<li><strong>Conception du réseau</strong></li>
+</ol>
+<p><img src="D:/projet2/image/image%20(1).png"
+style="width:6.29861in;height:3.53889in" /></p>
+<p>Ce réseau IoT est structuré de manière à permettre une connectivité
+fluide entre les dispositifs des deux chambres tout en assurant la
+sécurité et le contrôle via des équipements dédiés. Chaque section a un
+rôle bien défini, assurant une gestion efficace du réseau.</p>
+<ol type="A">
+<li><strong>La partie physique</strong></li>
+</ol>
+<!-- -->
+<ol type="1">
+<li><strong>La chambre de l’agent de sécurité</strong></li>
+</ol>
+<p>Cette section est dédiée au contrôle et à la surveillance du réseau.
+Elle contient plusieurs dispositifs essentiels :</p>
+<ul>
+<li><p><strong>SMARTPHONE-PT (smartphone0) :</strong> il permet la
+gestion mobile du réseau et la communication avec les dispositifs
+IoT.</p></li>
+<li><p><strong>Sirène 1 et 2 :</strong> déclenchent une alarme en cas
+d’intrusion ou d’urgence.</p></li>
+<li><p><strong>AccessPoint-PT (Access Point0) :</strong> Assure la
+connexion WI-FI aux appareils de cette chambre.</p></li>
+<li><p><strong>Server-PT (Server-dhcp1) :</strong> fournit des adresses
+IP automatique aux appareils via le protocole DHCP.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>La chambre du client</strong></li>
+</ol>
+<p>Cette partie du réseau est axée sur la connectivité domestique et la
+surveillance. Elle contient :</p>
+<ul>
+<li><p><strong>SMARTPHONE-PT (Smartphone1) :</strong> Il permet de
+surveiller et contrôler les équipements IoT.</p></li>
+<li><p><strong>Camera :</strong> sert à la surveillance vidéo en temps
+réel.</p></li>
+<li><p><strong>Fenêtre :</strong> capteur qui détecte l’ouverture ou la
+fermeture de la fenêtre.</p></li>
+<li><p><strong>Détecteur de mouvement :</strong> analyse les mouvements
+pour identifier une présence suspecte.</p></li>
+<li><p><strong>Porte :</strong> capteur qui surveille l’état d’ouverture
+ou de fermeture de la porte.</p></li>
+<li><p><strong>Lampe :</strong> permet de gérer l’éclairage
+intelligent.</p></li>
+<li><p><strong>AccessPoint-PT (Access Point1) :</strong> assure la
+connexion WI-FI aux appareils du client.</p></li>
+<li><p><strong>Server-PT (Server-iot) :</strong> gère les
+fonctionnalités IoT et stocke les données liées aux dispositifs
+connectes.</p></li>
+<li><p><strong>Server-PT (Server-dhcp) :</strong> fournit des adresses
+IP automatique aux appareils via le protocole DHCP.</p></li>
+<li><p><strong>Détecteur de fumée :</strong> permet de détecter la
+présence de la fumée donc éventuellement de feu dans la chambre du
+client.</p></li>
+<li><p><strong>Extincteur de feu :</strong> se déclenche quand la
+présence de la fumée est détectée.</p></li>
+</ul>
+<ol start="3" type="1">
+<li><strong>L’infrastructure réseau</strong></li>
+</ol>
+<p>Cette section joue un rôle de passerelle centrale et assure la
+communication entre les deux chambres. Elle contient :</p>
+<ul>
+<li><p><strong>Switch-PT (Switch0 et Switch1):</strong> ces deux switchs
+appartiennent à l’infrastructure centrale et relient tous les
+équipements réseau, assurant le routage des données entre les
+différentes sections du réseau.</p></li>
+<li><p><strong>2901 (Router0 et Router1) :</strong> les deux routeurs
+jouent un rôle fondamental dans la gestion du trafic réseau.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p><strong>Router0 :</strong> assure la communication entre la
+chambre de l’agent de sécurité et l’infrastructure réseau, permettant le
+transfert sécurisé des données IoT.</p></li>
+<li><p><strong>Router1 :</strong> relie la chambre du client à
+l’infrastructure réseau et gère les connexions entre les appareils IoT
+et les services réseau.</p></li>
+</ul>
+<p>Les routeurs optimisent les flux de communications et appliquent les
+politiques réseau (comme la gestion des adresses IP ou le filtrage du
+trafic).</p>
+<ol start="2" type="A">
+<li><strong>La connectivité</strong></li>
+</ol>
+<!-- -->
+<ol type="1">
+<li><strong>Câble Ethernet (Copper Straight-Through)</strong></li>
+</ol>
+<p>Ces câbles sont utilisés pour connecter les serveurs aux switchs, les
+access points aux switchs et les switchs aux routeurs. Je les ai
+utilisés car ils assurent une communication stable et rapide.</p>
+<ol start="2" type="1">
+<li><strong>Câble Serial</strong></li>
+</ol>
+<p>Ils sont utilisés pour connecter les routeurs entre eux. Je les ai
+utilisées car ils permettent une connexion plus réaliste des réseaux
+étendus. Pour cela, j’ai dû ajouter des ports adaptés au câble serial
+sur chaque routeur.</p>
+<p><img src="D:/projet2/image/image%20(2).png"
+style="width:6.29861in;height:6.49097in" /><img
+src="D:/projet2/image/image%20(3).png"
+style="width:6.29861in;height:6.41736in" /></p>
+<ol start="3" type="1">
+<li><strong>Connection WI-FI</strong></li>
+</ol>
+<p>La connexion WI-FI est utilisé pour les smartphones et les
+dispositifs IoT. Tout d’abord, elle permet plus de mobilité aux
+appareils, surtout aux smartphones qui doivent gérer les équipements à
+distance. Mais également, les objets IoT sont souvent conçues pour
+fonctionner en WI-FI.</p>
+<p>Les Access Point servent de relais pour assurer une communication
+fluide entre les appareils et l’infrastructure réseau.</p>
+<ol start="2" type="I">
+<li><strong>La configuration du réseau</strong></li>
+</ol>
+<!-- -->
+<ol type="A">
+<li><img src="D:/projet2/image/image%20(4).png"
+style="width:6.29861in;height:4.1875in" /><strong>Configuration des
+serveur DHCP</strong></li>
+</ol>
+<p><img src="D:/projet2/image/image%20(5).png"
+style="width:6.29861in;height:3.04167in" /></p>
+<p><img src="D:/projet2/image/image%20(6).png"
+style="width:6.29861in;height:3.25in" /></p>
+<p><img src="D:/projet2/image/image%20(7).png"
+style="width:6.29861in;height:3.125in" /></p>
+<p>Pour configurer le protocole DHCP, on commence par attribuer une
+adresse IP statique à chacun des server-dhcp. Puis, on se rend dans
+l’onglets services, ensuite on choisit DHCP pour activer le protocole.
+Par la suite, on ajoute l’adresse de la passerelle et les spécifications
+concernant la plage d’adresse à utiliser et on appuie sur « save » pour
+enregistrer la configuration. On fait la même chose pour chacun des
+serveur DHCP.</p>
+<ol start="2" type="A">
+<li><strong>Configuration des Access Point et des objets
+IoT</strong></li>
+</ol>
+<p><img src="D:/projet2/image/image%20(8).png"
+style="width:6.29861in;height:3.63889in" /><img
+src="D:/projet2/image/image%20(9).png"
+style="width:6.29861in;height:3.7375in" /></p>
+<p><img src="D:/projet2/image/image%20(10).png"
+style="width:6.29861in;height:4.03125in" /><img
+src="D:/projet2/image/image%20(11).png"
+style="width:6.29861in;height:4.26944in" /><img
+src="D:/projet2/image/image%20(12).png"
+style="width:6.29861in;height:3.97917in" /><img
+src="D:/projet2/image/image%20(13).png"
+style="width:6.29861in;height:4.36319in" /><img
+src="D:/projet2/image/image%20(14).png"
+style="width:6.29861in;height:3.875in" /><img
+src="D:/projet2/image/image%20(15).png"
+style="width:6.29861in;height:4.38056in" /><img
+src="D:/projet2/image/image%20(16).png"
+style="width:6.29861in;height:4.125in" /><img
+src="D:/projet2/image/image%20(17).png"
+style="width:6.29861in;height:4.18472in" /><img
+src="D:/projet2/image/image%20(18).png"
+style="width:6.29861in;height:6.5875in" /></p>
+<p>Dans cette partie, il est question de configurer les Access Point en
+se rendant dans l’onglet config, puis en cliquant sur port 1 afin de
+modifier le SSID. Par la suite, on se rend sur chaque objet IoT dans
+l’onglet config, puis on clique sur « Wireless 0 » et on ajoute le SSID
+de l’Access Point dans lequel on souhaite connecter notre objet. Pour
+les smartphones, après cette configuration, on se rend dans l’onglet
+Desktop, puis sur IP configuration pour constater l’attribution
+automatique de l’adresse IP par le protocole DHCP.</p>
+<ol start="3" type="A">
+<li><strong>Configuration des routeurs</strong></li>
+</ol>
+<p><img src="D:/projet2/image/image%20(19).png"
+style="width:6.29861in;height:4.17708in" /></p>
+<p><img src="D:/projet2/image/image%20(20).png"
+style="width:6.29861in;height:4.69792in" /></p>
+<p><img src="D:/projet2/image/image%20(21).png"
+style="width:6.29861in;height:3.83333in" /><img
+src="D:/projet2/image/image%20(22).png"
+style="width:6.29861in;height:4.63611in" /><img
+src="D:/projet2/image/image%20(23).png"
+style="width:6.29861in;height:3.95833in" /><img
+src="D:/projet2/image/image%20(24).png"
+style="width:6.29861in;height:4.28056in" /><img
+src="D:/projet2/image/image%20(25).png"
+style="width:6.29861in;height:6.125in" /></p>
+<p>Dans cette partie, j’ai procédé à la configuration de base des
+routeurs en configurant les interfaces GigabitEternet0/0 et serial0/0/0
+sur chacun des routeurs. Puis par la suite, j’ai activé un routage
+dynamique à l’aide de la commande « router ospf 1 » sur les deux
+routeurs. Avec la commande « show ip route » je me suis assuré que le
+routage fonctionne sur chacun des routeurs. Et pour finir, sur le
+smarphone0 qui se situe dans la chambre de l’agent de sécurité, j’ai
+fait « ping 192.168.1.1 », qui est l’adresse de passerelle pour la
+chambre du client, pour voir si les deux chambres communiquent entre
+elles et ce fut un succès.</p>
+<ol start="4" type="A">
+<li><strong>Configuration du protocole IoT</strong></li>
+</ol>
+<p><img src="D:/projet2/image/image%20(26).png"
+style="width:6.29861in;height:4.08333in" /><img
+src="D:/projet2/image/image%20(27).png"
+style="width:6.29861in;height:4.58125in" /><img
+src="D:/projet2/image/image%20(28).png"
+style="width:6.29861in;height:3.44792in" /><img
+src="D:/projet2/image/image%20(29).png"
+style="width:6.29861in;height:4.34514in" /><img
+src="D:/projet2/image/image%20(30).png"
+style="width:6.29861in;height:3.83333in" /><img
+src="D:/projet2/image/image%20(31).png"
+style="width:6.29861in;height:4.59375in" /><img
+src="D:/projet2/image/image%20(32).png"
+style="width:6.29861in;height:3.36458in" /><img
+src="D:/projet2/image/image%20(33).png"
+style="width:6.29861in;height:4.2in" /></p>
+<p>Pour configurer le protocole IoT, il faut tout d’abord attribué une
+adresse IP statique au serveur IoT, ensuite on se rend sur l’onglet
+services, puis on clique sur IoT pour l’activer. Après cela, on se rend
+sur chacun des smartphones dans l’onglet desktop, puis dans Web browser
+et on met l’adresse du serveur IoT soit 192.168.1.5 dans notre cas. Par
+la suite, on crée des comptes pour l’agent de sécurité (Username :
+colas, password : wendy) et pour le client (Username : wendy, password :
+colas).</p>
+<p>En nous connectant avec nos comptes respectifs, on se rend compte
+qu’il n’y a aucun objet connecté pour l’instant.</p>
+<ol start="5" type="A">
+<li><strong>Connexion des différents objets IoT</strong></li>
+</ol>
+<p><img src="D:/projet2/image/image%20(34).png"
+style="width:6.29861in;height:3.48958in" /></p>
+<p><img src="D:/projet2/image/image%20(35).png"
+style="width:6.29861in;height:4.14583in" /><img
+src="D:/projet2/image/image%20(36).png"
+style="width:6.29861in;height:4.30278in" /><img
+src="D:/projet2/image/image%20(37).png"
+style="width:6.29861in;height:3.13542in" /><img
+src="D:/projet2/image/image%20(38).png"
+style="width:6.29861in;height:3.60417in" /><img
+src="D:/projet2/image/image%20(39).png"
+style="width:6.29861in;height:4.15625in" /><img
+src="D:/projet2/image/image%20(40).png"
+style="width:6.29861in;height:4.47708in" /><img
+src="D:/projet2/image/image%20(41).png"
+style="width:6.29861in;height:4.0625in" /><img
+src="D:/projet2/image/image%20(42).png"
+style="width:6.29861in;height:4.82778in" /><img
+src="D:/projet2/image/image%20(43).png"
+style="width:6.29861in;height:3.39583in" /><img
+src="D:/projet2/image/image%20(44).png"
+style="width:6.29861in;height:4.51111in" /></p>
+<p><img src="D:/projet2/image/image%20(45).png"
+style="width:6.29861in;height:4.35417in" /><img
+src="D:/projet2/image/image%20(46).png"
+style="width:6.29861in;height:4.66181in" /></p>
+<p>Pour cette partie, j’ai commencé par les objets qui seront connectés
+au smartphone du client comme : la fenêtre, la lampe, la porte, la
+sirène 1, le détecteur de fumée et l’extincteur de feu et ceux qui
+seront connectés au smartphone de l’agent de sécurité comme : la camera,
+le détecteur de mouvement et la sirène 2.</p>
+<p>Après avoir fait cette séparation, on procède à la connexion de
+chaque objet. Pour les objets qui seront connectés au smartphone de
+l’agent de sécurité (smartphone0), on se rend dans l’onglet « config »
+de l’objet en question, puis on clique sur « settings » et dans la
+section IoT server on coche « remote server » et on remplit les lignes
+avec 192.168.1.5 qui est l’adresse du server-iot, puis colas et wendy
+qui sont respectivement le username et le password du compte sur le
+server-iot pour l’agent de sécurité. On procède de la même manière pour
+le client tout en utilisant ses identifiants à lui.</p>
+<p>Ensuite on se connecte sur chaque smartphone pour voir si les objets
+sont bel et bien connectés et s’ils fonctionnent également.</p>
+<p>Par la suite, j’ai ajoute plusieurs conditions qui donne une certaine
+automatisation aux différents objets IoT. La première condition, ajoutée
+sur le smartphone de l’agent de sécurité, est une condition de
+détection : if détecteur de mouvement on is true then set camera on to
+true and sirène 2 on to true. Avec cette condition, si le détecteur de
+mouvement détecte une présence, automatique la camera s’allumera et la
+sirène 2 se trouvant dans la chambre de l’agent de sécurité sera allumer
+aussi.</p>
+<p>Il y a une condition de non détection également : if détecteur de
+mouvement on is false then set camera on to false and sirène 2 on to
+false.</p>
+<p>Des conditions sont aussi ajoutées sur le smartphone se trouvant dans
+la chambre du client dont le premier s’appelle feu : if détecteur de
+fumée level &gt;= 0,2 then set sirène 1 on to true, porte on to true,
+fenêtre on to true, extincteur de feu status to true. Cette condition
+stipule que si le détecteur détecte une fumée supérieure ou égale à 0,2
+une sirène dans la chambre de l’agent de sécurité se mettra à sonner, la
+porte et la fenêtre s’ouvriront et l’extincteur de feu s’ouvrira
+aussi.</p>
+<p>Une autre du nom de non feu est aussi posée qui est l’inverse de
+celle intitulée feu.</p>
+<p>Pour vérifier si les conditions fonctionnent, on utilise la touche
+ALT et le curseur.</p>
+<ol start="3" type="I">
+<li><strong>Comparaison entre les protocoles IoT</strong></li>
+</ol>
+<p>Dans le domaine de l’internet des objets (IoT), le choix du protocole
+de communication est crucial pour garantir une transmission efficace des
+données entre les appareils connectés. Trois protocoles majeurs sont
+largement utilisés : MQTT, CoAP et http. Chacun d’eux présente des
+caractéristiques uniques, en termes de performance et de complexité, et
+leur fonctionnement varie selon les besoins du système IoT.</p>
+<ul>
+<li><strong>MQTT (Message Queuing Telemetry Transport)</strong></li>
+</ul>
+<p>Le MQTT est un protocole de messagerie léger conçu pour les réseaux
+avec peu de bande passante et les appareils à faible puissance. Il est
+souvent utilisé dans les systèmes IoT pour transmettre efficacement des
+données entre appareils.</p>
+<p><strong>Performance :</strong></p>
+<ul>
+<li><p>Utilise un modèle de publication-abonnement.</p></li>
+<li><p>Les appareils ne communiquent pas directement entre eux car ils
+envoient et reçoivent des messages via un courtier (serveur
+central).</p></li>
+<li><p>Très rapide et efficace.</p></li>
+</ul>
+<p><strong>Complexité :</strong></p>
+<ul>
+<li><p>Moyenne</p></li>
+<li><p>Nécessite un courtier pour gérer les échanges de
+messages.</p></li>
+<li><p>Facile à intégrer mais demande une configuration
+précise.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>CoAP (Constrained Application Protocol)</strong></li>
+</ul>
+<p>Le CoAP est un protocole spécialement conçu pour les appareils IoT
+très limités en énergie et en ressources. Il permet une communication
+rapide et légère en utilisant un modèle proche de http.</p>
+<p><strong>Performance :</strong></p>
+<ul>
+<li><p>Fonctionne avec un modèle client-serveur.</p></li>
+<li><p>Utilise UDP au lieu de TCP, ce qui le rend plus rapide et adapté
+aux objets connectés.</p></li>
+<li><p>Permet aux petits appareils de faire des requêtes REST (GET,
+POST, PUT, DELETE) sur les serveurs.</p></li>
+</ul>
+<p><strong>Complexité :</strong></p>
+<ul>
+<li><p>Moyenne.</p></li>
+<li><p>Basé sur UDP.</p></li>
+<li><p>Peut être plus difficile à gérer lorsqu’on doit assurer la
+fiabilité des messages.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>HTTP (Hypertext Transfert Protocol)</strong></li>
+</ul>
+<p>HTTP est le protocole de communication le plus utilisé sur internet.
+Il est conçu pour échanger des données entre les navigateurs et les
+serveurs Web.</p>
+<p><strong>Performance :</strong></p>
+<ul>
+<li><p>Fonctionne avec un modèle serveur-client.</p></li>
+<li><p>Utilise TCP pour assurer une transmission fiable des
+données.</p></li>
+</ul>
+<p><strong>Complexité :</strong></p>
+<ul>
+<li><p>Elevée.</p></li>
+<li><p>Trop lourd pour les objets connectés avec peu de
+ressources.</p></li>
+</ul>
+<ol start="4" type="I">
+<li><strong>Importance de l’IoT</strong></li>
+</ol>
+<p>L’Internet des Objets joue un rôle fondamental dans la collecte de
+données et l’automatisation des processus grâce à la connexion
+intelligente entre appareils. Il permet :</p>
+<ol type="1">
+<li>La collecte efficace des données</li>
+</ol>
+<ul>
+<li><p>Les capteurs IoT peuvent surveiller en temps réel divers
+paramètres (température, humidité, mouvement, …).</p></li>
+<li><p>La transmission automatique des données permet d’éviter les
+erreurs humaines et améliorer la précision des analyses.</p></li>
+<li><p>Ces informations permettent d’anticiper les problèmes, comme la
+maintenance préventive des machines avant qu’elles ne tombent en
+panne.</p></li>
+</ul>
+<ol start="2" type="1">
+<li>L’automatisation des processus</li>
+</ol>
+<p>L’IoT permet aux systèmes connectés d’agir sans intervention humaine.
+Par exemple :</p>
+<ul>
+<li><p>Les usines intelligentes ajustent leur production en fonction des
+besoins détectés.</p></li>
+<li><p>Les bâtiments intelligents optimisent l’éclairage et le chauffage
+pour économiser de l’énergie.</p></li>
+</ul>
+<ol start="3" type="1">
+<li>L’amélioration de l’efficacité et la réduction des coûts</li>
+</ol>
+<ul>
+<li><p>Moins d’intervention humaine = moins d’erreurs et plus de
+rapidité dans l’exécution des tâches.</p></li>
+<li><p>Optimisation de l’utilisation des ressources.</p></li>
+<li><p>Amélioration de la sécurité.</p></li>
+</ul>
+<ol start="22" type="A">
+<li><strong>Création du projet sur Jira</strong></li>
+</ol>
+<p>Dans le cadre du projet intitulé Simulation d'un Réseau IoT avec
+Cisco Packet Tracer , une démarche de gestion agile a été mise en œuvre
+à travers l'utilisation de la méthode Scrum . L'objectif de ce travail
+était de simuler un environnement de développement itératif en
+structurant les différentes phases du projet sous forme de user stories
+, regroupées dans des Epics , et planifiées dans un Sprint de deux
+semaines à l'aide de l'outil Jira. Ce rapport présente les étapes de
+mise en œuvre de cette démarche, de la création du backlog à la
+simulation du sprint, en passant par l'organisation des tâches, la
+planification et l'évaluation.</p>
+<ol type="1">
+<li>Création du projet Jira et structuration en Epics</li>
+</ol>
+<p>La première étape a consisté à créer un nouveau projet Scrum dans
+Jira, en lien avec le thème principal du projet IoT. Le travail a été
+découpé en 5 grands Epics , chacun représentant une composante majeure
+du système :</p>
+<ul>
+<li><p>Infrastructure réseau</p></li>
+<li><p>Intégration des objets IoT</p></li>
+<li><p>Automatisation des objets</p></li>
+<li><p>Expérience utilisateur via smartphone</p></li>
+<li><p>Choix et analyse des protocoles IoT</p></li>
+</ul>
+<p>Ces Epics ont permis de mieux organiser les tâches selon les
+différentes dimensions du projet technique et fonctionnel.</p>
+<p>Un backlog a été élaboré à partir des besoins fonctionnels du
+système. Dix user stories ont été formulées en suivant le format
+classique ("En tant que... je veux... afin de..."). Chaque user story a
+été associée à un Epic, facilitant leur hiérarchisation et
+planification. Cette étape a permis d'identifier les fonctionnalités
+clés à développer : configuration réseau, connexion des capteurs,
+automatisation des alertes, interface utilisateur, etc.</p>
+<p>Un premier Sprint de deux semaines a été organisé. Son objectif
+principal était de mettre en place l'infrastructure de base, connecter
+les premiers objets IoT, configurer les smartphones, et amorcer les
+règles d'automatisation.</p>
+<p>Des tâches concrètes ont été créées pour chaque user story
+sélectionnée pour ce sprint. Un effort particulier a été mis sur les
+tâches prioritaires liées à la connectivité réseau, à la configuration
+du DHCP et à la communication inter-chambre.</p>
+<p>Dans Jira, un tableau Scrum a été configuré avec les colonnes "À
+faire", "En cours", "En revue" et "Terminé". Les tâches ont ensuite été
+déplacées au fil de la progression, reproduisant ainsi le workflow agile
+. Cette représentation visuelle a permis de suivre en temps réel
+l'évolution du sprint et d'identifier rapidement les éventuels
+blocages.</p>
+<p>À la fin du sprint, une démonstration des réalisations a été simulée
+: les objets IoT ont bien été connectés, la configuration des serveurs
+DHCP validée, et les premières automatisations testées avec succès.</p>
+<p>La rétrospective a permis d'identifier les points forts (bonne
+structuration initiale, cohérence des Epics) et les axes d'amélioration
+(gestion des dépendances entre tâches, planification plus réaliste de
+certaines fonctionnalités avancées).</p>
+<p><img src="D:/projet2/image/image%20(47).png"
+style="width:6.29861in;height:3.35903in" /><img
+src="D:/projet2/image/image%20(48).png"
+style="width:6.29861in;height:3.28542in" /></p>
+<p><img src="D:/projet2/image/image%20(49).png"
+style="width:6.29861in;height:3.35486in" /><img
+src="D:/projet2/image/image%20(50).png"
+style="width:6.29861in;height:3.05486in" /></p>
+<p><img src="D:/projet2/image/image%20(51).png"
+style="width:6.29861in;height:3.24236in" /><img
+src="D:/projet2/image/image%20(52).png"
+style="width:6.29861in;height:3.12361in" /></p>
+<p><img src="D:/projet2/image/image%20(53).png"
+style="width:6.29861in;height:3.36181in" /><img
+src="D:/projet2/image/image%20(54).png"
+style="width:6.29861in;height:3.37153in" /></p>
+<p><img src="D:/projet2/image/image%20(55).png"
+style="width:6.29861in;height:3.36389in" /><img
+src="D:/projet2/image/image%20(56).png"
+style="width:6.29861in;height:3.15417in" /></p>
+<p><img src="D:/projet2/image/image%20(57).png"
+style="width:6.29861in;height:3.18194in" /><img
+src="D:/projet2/image/image%20(58).png"
+style="width:6.29861in;height:3.16806in" /></p>
+<p><img src="D:/projet2/image/image%20(59).png"
+style="width:6.29861in;height:2.93958in" /></p>
+<ol start="6" type="I">
+<li><strong>Conclusion</strong></li>
+</ol>
+<p>Ce document explore la conception et la configuration d'un réseau IoT
+dans Cisco Packet Tracer, en mettant en place une infrastructure
+connectée pour l'automatisation et la sécurité. Il détaille les
+différents appareils IoT, leur connectivité, et les protocoles réseau
+utilisés, notamment DHCP, Wi-Fi et OSPF.</p>
+<p>Grâce à cette simulation, nous avons pu observer l'échange de données
+en temps réel, la gestion des équipements IoT, et l'intégration de
+règles automatisées pour optimiser le fonctionnement du réseau. En
+comparant les protocoles de communication comme MQTT, CoAP et HTTP, le
+document montre comment choisir le protocole le plus adapté selon les
+besoins du système.</p>
+<p>Cette étude met en avant l'importance de l'IoT dans la collecte de
+données et l'automatisation des processus, soulignant ses bénéfices en
+matière de sécurité, efficacité et réduction des coûts. Elle démontre
+également que, grâce à des outils comme Cisco Packet Tracer, il est
+possible de concevoir des réseaux intelligents et performants, ouvrant
+la voie à des applications pratiques dans divers domaines.</p>
+<p>Ce travail a démontré l'intérêt d'appliquer la méthode Scrum à un
+projet technique tel que la simulation d'un réseau IoT. L'utilisation de
+Jira facilite l'organisation, la planification et le suivi des tâches.
+Cette approche itérative a permis de mieux visualiser la progression du
+projet et de s'adapter aux besoins au fur et à mesure. Au-delà de
+l'aspect technique, ce travail a renforcé la maîtrise des outils de
+gestion de projet agile, essentiels dans le monde professionnel
+actuel.</p>
