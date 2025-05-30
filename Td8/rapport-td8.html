@@ -1,0 +1,160 @@
+<p><strong>Institut Universitaire des Sciences</strong></p>
+<p><strong>Faculté des Sciences et Technologies</strong></p>
+<p><strong>Td8 dans le cadre du cours de Réseaux 2</strong></p>
+<p><strong>Préparé par Wendy COLAS</strong></p>
+<p><strong>A l’attention de Monsieur Ismaël SAINT AMOUR</strong></p>
+<p><strong>Mai 2025</strong></p>
+<h1
+id="installation-et-configuration-de-pfsense-sur-une-vm">Installation et
+Configuration de pfSense sur une VM</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Ce document décrit le processus d’installation et de configuration de
+<strong>pfSense</strong> sur une machine virtuelle dans
+<strong>VirtualBox</strong>. L’objectif est de mettre en place un
+firewall et un routeur virtuel permettant une gestion avancée des
+réseaux.</p>
+<hr />
+<h2 id="préparation-de-la-machine-virtuelle">1. Préparation de la
+Machine Virtuelle</h2>
+<p>Avant de commencer l’installation de pfSense, nous avons créé une VM
+sous VirtualBox avec les paramètres adaptés : - <strong>Type du
+système</strong> : BSD - <strong>Version</strong> : FreeBSD (64-bit) -
+<strong>Mémoire</strong> : 2 Go (2048 Mo) - <strong>Processeur</strong>
+: 1 vCPU - <strong>Disque dur</strong> : 20 Go (VDI) -
+<strong>Interfaces réseau</strong> : WAN et LAN</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(1).png"
+alt="Configuration de la VM" />
+<figcaption aria-hidden="true">Configuration de la VM</figcaption>
+</figure>
+<hr />
+<h2 id="installation-de-pfsense">2. Installation de pfSense</h2>
+<h3 id="démarrage-de-liso">2.1. Démarrage de l’ISO</h3>
+<p>Une fois la VM configurée, nous avons monté l’ISO et démarré
+l’installation.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(2).png"
+alt="Démarrage de l’installation" />
+<figcaption aria-hidden="true">Démarrage de l’installation</figcaption>
+</figure>
+<h3 id="configuration-des-partitions">2.2. Configuration des
+partitions</h3>
+<p>Nous avons opté pour une partition <strong>Auto UFS</strong> afin de
+simplifier l’installation.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(3).png"
+alt="Choix de partition" />
+<figcaption aria-hidden="true">Choix de partition</figcaption>
+</figure>
+<h3 id="sélection-des-interfaces-réseau">2.3. Sélection des interfaces
+réseau</h3>
+<p>Nous avons défini les interfaces <strong>WAN (Bridged
+Adapter)</strong> et <strong>LAN (Internal Network)</strong> pour un
+accès interne sécurisé.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(4).png"
+alt="Configuration réseau" />
+<figcaption aria-hidden="true">Configuration réseau</figcaption>
+</figure>
+<hr />
+<h2 id="configuration-de-pfsense">3. Configuration de pfSense</h2>
+<h3 id="attribution-des-adresses-ip">3.1. Attribution des adresses
+IP</h3>
+<ul>
+<li><strong>WAN</strong> : DHCP (IP attribuée dynamiquement)</li>
+<li><strong>LAN</strong> : 192.168.1.1/24 (Passerelle)</li>
+</ul>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(5).png"
+alt="Configuration IP" />
+<figcaption aria-hidden="true">Configuration IP</figcaption>
+</figure>
+<h3 id="accès-à-linterface-web">3.2. Accès à l’interface Web</h3>
+<p>Nous nous connectons à l’interface Web via
+<strong>http://192.168.1.1</strong> pour finaliser les réglages.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(6).png"
+alt="Interface Web pfSense" />
+<figcaption aria-hidden="true">Interface Web pfSense</figcaption>
+</figure>
+<hr />
+<h2 id="configuration-avancée">4. Configuration avancée</h2>
+<h3 id="configuration-du-wan">4.1. Configuration du WAN</h3>
+<p>Le WAN est configuré avec l’option <strong>DHCP</strong> pour une
+attribution automatique de l’adresse IP.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(7).png"
+alt="Configuration WAN" />
+<figcaption aria-hidden="true">Configuration WAN</figcaption>
+</figure>
+<h3 id="paramétrage-du-lan">4.2. Paramétrage du LAN</h3>
+<p>Le réseau local est défini sur <strong>192.168.2.1/24</strong>,
+permettant la gestion des équipements internes.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(8).png"
+alt="Configuration LAN" />
+<figcaption aria-hidden="true">Configuration LAN</figcaption>
+</figure>
+<hr />
+<h2 id="vérification-et-optimisation">5. Vérification et
+Optimisation</h2>
+<p>Nous avons procédé à plusieurs tests pour nous assurer du bon
+fonctionnement des interfaces.</p>
+<h3 id="test-de-connectivité">5.1. Test de connectivité</h3>
+<p>Nous avons vérifié que les interfaces sont bien actives et que les
+règles de pare-feu ne bloquent pas le trafic.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(9).png"
+alt="Test de connectivité" />
+<figcaption aria-hidden="true">Test de connectivité</figcaption>
+</figure>
+<h3 id="firewall-et-nat">5.2. Firewall et NAT</h3>
+<p>Nous avons mis en place des règles de <strong>filtrage</strong> et de
+<strong>NAT</strong> pour permettre l’accès contrôlé au réseau.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(10).png"
+alt="Configuration Firewall" />
+<figcaption aria-hidden="true">Configuration Firewall</figcaption>
+</figure>
+<hr />
+<h2 id="finalisation-et-tests">6. Finalisation et Tests</h2>
+<p>Le système est maintenant <strong>opérationnel</strong>, et nous
+avons validé son bon fonctionnement.</p>
+<h3 id="vérification-des-logs">6.1. Vérification des Logs</h3>
+<p>Les logs indiquent une bonne synchronisation des interfaces.</p>
+<figure>
+<img src="D:\projet2\Td8\image\image%20(11).png"
+alt="Vérification des logs" />
+<figcaption aria-hidden="true">Vérification des logs</figcaption>
+</figure>
+<h3 id="tests-avancés-et-débogage">6.2. Tests avancés et débogage</h3>
+<p>Nous avons corrigé quelques <strong>problèmes mineurs</strong> et
+optimisé certaines configurations réseau.</p>
+<p><img src="D:\projet2\Td8\image\image%20(12).png" alt="Débogage" />
+<img src="D:\projet2\Td8\image\image%20(13).png" alt="image (13)" />
+<img src="D:\projet2\Td8\image\image%20(14).png" alt="image (14)" />
+<img src="D:\projet2\Td8\image\image%20(15).png" alt="image (15)" />
+<img src="D:\projet2\Td8\image\image%20(16).png" alt="image (16)" />
+<img src="D:\projet2\Td8\image\image%20(17).png" alt="image (17)" />
+<img src="D:\projet2\Td8\image\image%20(18).png" alt="image (18)" />
+<img src="D:\projet2\Td8\image\image%20(19).png" alt="image (19)" />
+<img src="D:\projet2\Td8\image\image%20(20).png" alt="image (20)" />
+<img src="D:\projet2\Td8\image\image%20(21).png" alt="image (21)" />
+<img src="D:\projet2\Td8\image\image%20(22).png" alt="image (22)" />
+<img src="D:\projet2\Td8\image\image%20(23).png" alt="image (23)" />
+<img src="D:\projet2\Td8\image\image%20(24).png" alt="image (24)" />
+<img src="D:\projet2\Td8\image\image%20(25).png" alt="image (25)" />
+<img src="D:\projet2\Td8\image\image%20(26).png" alt="image (26)" />
+<img src="D:\projet2\Td8\image\image%20(27).png" alt="image (27)" />
+<img src="D:\projet2\Td8\image\image%20(28).png" alt="image (28)" />
+<img src="D:\projet2\Td8\image\image%20(29).png" alt="image (29)" />
+<img src="D:\projet2\Td8\image\image%20(30).png" alt="image (30)" />
+<img src="D:\projet2\Td8\image\image%20(31).png" alt="image (31)" />
+<img src="D:\projet2\Td8\image\image%20(32).png" alt="image (32)" /></p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>L’installation et la configuration de <strong>pfSense</strong> sur
+une VM permettent de disposer d’une <strong>solution complète</strong>
+de firewall et de routage. En suivant ces étapes, nous obtenons un
+environnement sécurisé et adapté à la gestion avancée du réseau.</p>
+<hr />
