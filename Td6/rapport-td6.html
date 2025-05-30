@@ -1,0 +1,192 @@
+<p><strong>Institut Universitaire des Sciences</strong></p>
+<p><strong>Faculté des Sciences et Technologies</strong></p>
+<p><strong>Td6 dans le cadre du cours de Réseaux 2</strong></p>
+<p><strong>Préparé par Wendy COLAS</strong></p>
+<p><strong>A l’attention de Monsieur Ismaël SAINT AMOUR</strong></p>
+<p><strong>Mai 2025</strong></p>
+<h1
+id="reproduction-de-la-topologie-en-configurant-un-vpn-site-à-site">Reproduction
+de la topologie en configurant un VPN site-à-site</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Dans ce document, nous détaillons le processus de configuration d’un
+VPN site-à-site afin de sécuriser les échanges entre deux réseaux. Cette
+configuration implique l’utilisation de routeurs, de VPCS et d’outils
+tels que Solar-PuTTY pour l’administration. Chaque étape est illustrée
+par une image accompagnée d’une explication détaillée.</p>
+<h2 id="étapes-de-la-configuration">Étapes de la configuration</h2>
+<h3 id="topologie-réseau-initiale">1. Topologie réseau initiale</h3>
+<p><img src="D:\projet2\Td6\image\image%20(1).png"
+alt="Image 1" /><br />
+La topologie initiale est conçue sur GNS3 et comporte des routeurs, des
+switchs et des PC simulés. Cette architecture permet une connexion
+étendue et la mise en œuvre du VPN.</p>
+<h3 id="configuration-du-premier-routeur-r1">2. Configuration du premier
+routeur (R1)</h3>
+<p><img src="D:\projet2\Td6\image\image%20(2).png"
+alt="Image 2" /><br />
+À l’aide de Solar-PuTTY, nous configurons les interfaces de R1 et
+attribuons les adresses IP nécessaires à la communication entre les
+sous-réseaux.</p>
+<h3 id="configuration-du-second-routeur-r2">3. Configuration du second
+routeur (R2)</h3>
+<p><img src="D:\projet2\Td6\image\image%20(3).png"
+alt="Image 3" /><br />
+Le routeur R2 est configuré avec ses interfaces réseau et routes
+statiques afin d’assurer la communication avec R1 et les PC du
+réseau.</p>
+<h3 id="vérification-de-létat-des-interfaces">4. Vérification de l’état
+des interfaces</h3>
+<p><img src="D:\projet2\Td6\image\image%20(4).png"
+alt="Image 4" /><br />
+Une vérification est effectuée pour s’assurer que les interfaces sont
+bien actives et que les routes sont correctement définies.</p>
+<h3 id="test-de-communication-entre-les-sous-réseaux">5. Test de
+communication entre les sous-réseaux</h3>
+<p><img src="D:\projet2\Td6\image\image%20(5).png"
+alt="Image 5" /><br />
+Un test de connectivité est réalisé entre les sous-réseaux via des
+commandes <code>ping</code>.</p>
+<h3 id="configuration-des-routes-statiques">6. Configuration des routes
+statiques</h3>
+<p><img src="D:\projet2\Td6\image\image%20(6).png"
+alt="Image 6" /><br />
+Les routes statiques sont mises en place sur R2 pour garantir
+l’acheminement du trafic entre les réseaux.</p>
+<h3 id="mise-en-place-de-la-sécurité-avec-ipsec-et-isakmp">7. Mise en
+place de la sécurité avec IPsec et ISAKMP</h3>
+<p><img src="D:\projet2\Td6\image\image%20(7).png"
+alt="Image 7" /><br />
+La configuration VPN débute avec l’établissement des règles de sécurité
+IPsec et des paramètres ISAKMP.</p>
+<h3 id="vérification-des-associations-de-sécurité">8. Vérification des
+associations de sécurité</h3>
+<p><img src="D:\projet2\Td6\image\image%20(8).png"
+alt="Image 8" /><br />
+Un état des associations de sécurité IPsec et ISAKMP est vérifié pour
+s’assurer que le tunnel VPN est bien actif.</p>
+<h3 id="débogage-des-configurations-vpn">9. Débogage des configurations
+VPN</h3>
+<p><img src="D:\projet2\Td6\image\image%20(9).png"
+alt="Image 9" /><br />
+Une analyse des logs est effectuée pour identifier d’éventuels problèmes
+de connexion et d’authentification.</p>
+<h3 id="simulation-du-trafic-via-vpcs">10. Simulation du trafic via
+VPCS</h3>
+<p><img src="D:\projet2\Td6\image\image%20(10).png"
+alt="Image 10" /><br />
+Les tests de communication entre les machines via VPCS confirment la
+fonctionnalité du VPN.</p>
+<h3 id="correction-et-validation-finale">11. Correction et validation
+finale</h3>
+<p><img src="D:\projet2\Td6\image\image%20(11).png"
+alt="Image 11" /><br />
+Des ajustements sont apportés aux configurations pour garantir un tunnel
+sécurisé et efficace.</p>
+<h3 id="vérification-finale-de-la-communication-vpn">12. Vérification
+finale de la communication VPN</h3>
+<p><img src="D:\projet2\Td6\image\image%20(12).png"
+alt="Image 12" /><br />
+Un dernier test est effectué pour valider le bon fonctionnement du VPN
+site-à-site avant sa mise en production.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>La configuration d’un VPN site-à-site permet de sécuriser les
+communications entre deux réseaux distants. Grâce à l’utilisation
+d’IPsec, ISAKMP et des routes statiques, les échanges sont protégés et
+le trafic est correctement acheminé entre les sous-réseaux. Ce document
+détaille chaque étape du processus avec des explications et des
+illustrations pour une compréhension approfondie.</p>
+<hr />
+<h1
+id="reproduction-de-la-topologie-en-configurant-un-vpn-gre-over-ipsec-avec-routage-dynamique-ospf">Reproduction
+de la topologie en configurant un VPN GRE over IPSec avec Routage
+Dynamique (OSPF)</h1>
+<h2 id="introduction-1">Introduction</h2>
+<p>Dans ce document, nous détaillons le processus de configuration d’un
+<strong>VPN GRE over IPSec</strong> avec <strong>routage dynamique
+OSPF</strong>. Cette approche permet d’assurer la sécurité des échanges
+entre sites tout en bénéficiant de la flexibilité du routage dynamique.
+Nous utilisons <strong>GNS3, Solar-PuTTY et Virtual PC Simulator
+(VPCS)</strong> pour simuler l’environnement. Chaque étape est illustrée
+avec des images et des explications détaillées.</p>
+<h2 id="étapes-de-la-configuration-1">Étapes de la configuration</h2>
+<h3 id="conception-de-la-topologie-réseau">1. Conception de la topologie
+réseau</h3>
+<p><img src="D:\projet2\Td6\image\image%20(13).png"
+alt="Image 13" /><br />
+La topologie est construite sous <strong>GNS3</strong>, incluant
+<strong>routeurs, switches, PC, et connexions vers le cloud</strong>,
+créant un environnement de simulation réaliste.</p>
+<h3 id="configuration-du-premier-routeur-r1-1">2. Configuration du
+premier routeur (R1)</h3>
+<p><img src="D:\projet2\Td6\image\image%20(14).png"
+alt="Image 14" /><br />
+R1 est configuré avec <strong>interfaces IP, tunnel GRE, et routage
+OSPF</strong>. Les paramètres ISAKMP et IPsec sont définis pour chiffrer
+les échanges via le VPN.</p>
+<h3 id="configuration-du-second-routeur-r2-1">3. Configuration du second
+routeur (R2)</h3>
+<p><img src="D:\projet2\Td6\image\image%20(15).png"
+alt="Image 15" /><br />
+R2 est configuré avec ses <strong>interfaces réseau, tunnel GRE et
+routage OSPF</strong>, garantissant l’interconnexion sécurisée entre les
+sites.</p>
+<h3 id="configuration-de-pc1-dans-virtual-pc-simulator">4. Configuration
+de PC1 dans Virtual PC Simulator</h3>
+<p><img src="D:\projet2\Td6\image\image%20(16).png"
+alt="Image 16" /><br />
+PC1 est attribué l’adresse <strong>192.168.1.2</strong>, avec
+<strong>192.168.1.1</strong> comme passerelle.</p>
+<h3 id="configuration-de-pc2-dans-virtual-pc-simulator">5. Configuration
+de PC2 dans Virtual PC Simulator</h3>
+<p><img src="D:\projet2\Td6\image\image%20(17).png"
+alt="Image 17" /><br />
+PC2 est configuré avec <strong>192.168.2.2</strong> et la passerelle
+<strong>192.168.2.1</strong>.</p>
+<h3 id="vérification-du-tunnel-gre-sur-r1">6. Vérification du tunnel GRE
+sur R1</h3>
+<figure>
+<img src="D:\projet2\Td6\image\image%20(18).png" alt="Image 18" />
+<figcaption aria-hidden="true">Image 18</figcaption>
+</figure>
+<h3 id="vérification-des-associations-ipsec-et-isakmp">7. Vérification
+des associations IPsec et ISAKMP</h3>
+<figure>
+<img src="D:\projet2\Td6\image\image%20(19).png" alt="Image 19" />
+<figcaption aria-hidden="true">Image 19</figcaption>
+</figure>
+<h3 id="débogage-de-la-connectivité-tunnel">8. Débogage de la
+connectivité tunnel</h3>
+<figure>
+<img src="D:\projet2\Td6\image\image%20(20).png" alt="Image 20" />
+<figcaption aria-hidden="true">Image 20</figcaption>
+</figure>
+<h3 id="test-de-communication-avec-pc1">9. Test de communication avec
+PC1</h3>
+<figure>
+<img src="D:\projet2\Td6\image\image%20(21).png" alt="Image 21" />
+<figcaption aria-hidden="true">Image 21</figcaption>
+</figure>
+<h3 id="vérification-finale-du-routage-dynamique-ospf">10. Vérification
+finale du routage dynamique OSPF</h3>
+<figure>
+<img src="D:\projet2\Td6\image\image%20(22).png" alt="Image 22" />
+<figcaption aria-hidden="true">Image 22</figcaption>
+</figure>
+<h3 id="optimisation-des-configurations-vpn-et-routage">11. Optimisation
+des configurations VPN et routage</h3>
+<p><img src="D:\projet2\Td6\image\image%20(23).png"
+alt="Image 23" /><br />
+Des ajustements sont apportés aux <strong>paramètres GRE, IPsec et
+ISAKMP</strong> pour assurer une fluidité des échanges sécurisés.</p>
+<h3 id="test-de-performance-et-validation-finale">12. Test de
+performance et validation finale</h3>
+<p><img src="D:\projet2\Td6\image\image%20(24).png"
+alt="Image 24" /><br />
+Une dernière série de tests est réalisée pour valider le bon
+fonctionnement du <strong>VPN GRE over IPSec avec OSPF</strong>,
+confirmant que le trafic passe correctement.</p>
+<h2 id="conclusion-1">Conclusion</h2>
+<p>La mise en place d’un <strong>VPN GRE over IPSec</strong> avec
+<strong>routage dynamique OSPF</strong> offre une solution sécurisée et
+flexible pour l’interconnexion des sites distants.</p>
+<hr />
