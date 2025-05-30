@@ -1,0 +1,241 @@
+<h1
+id="reproduction-de-la-topologie-en-implémentant-le-protocole-de-routage-ospf-dans-un-réseau">Reproduction
+de la topologie en implémentant le Protocole de Routage OSPF dans un
+Réseau</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Ce rapport documente la configuration et l’implémentation du
+protocole de routage <strong>OSPF</strong> dans un réseau, illustrée par
+une série de captures d’écran. L’objectif est de montrer les différentes
+étapes de mise en place des éléments réseaux et leur interaction.</p>
+<h2 id="architecture-du-réseau">1. Architecture du réseau</h2>
+<p>Voici la topologie du réseau utilisée pour l’implémentation du
+protocole <strong>OSPF</strong> :</p>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(1).png" alt="image 1" />
+<figcaption aria-hidden="true">image 1</figcaption>
+</figure>
+<h2 id="configuration-des-réseaux-sans-fil">2. Configuration des réseaux
+sans fil</h2>
+<p>La configuration des points d’accès sans fil et des paramètres SSID
+est représentée ci-dessous :</p>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(2).png" alt="image 2" />
+<figcaption aria-hidden="true">image 2</figcaption>
+</figure>
+<h2 id="paramétrage-du-dhcp">3. Paramétrage du DHCP</h2>
+<p>Le serveur DHCP est configuré pour l’attribution dynamique des
+adresses IP aux périphériques IoT et autres équipements réseau :</p>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(3).png" alt="image 3" />
+<figcaption aria-hidden="true">image 3</figcaption>
+</figure>
+<h2 id="configuration-des-appareils-iot">4. Configuration des appareils
+IoT</h2>
+<p>Chaque appareil IoT est intégré au réseau via des paramètres
+spécifiques, incluant les configurations sans fil et d’adressage :</p>
+<h3 id="iot1">4.1 IoT1</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(4).png" alt="image 4" />
+<figcaption aria-hidden="true">image 4</figcaption>
+</figure>
+<h3 id="iot8">4.2 IoT8</h3>
+<p><img src="D:/projet2/Td5/image/image%20(5).png" alt="image 5" /> <img
+src="D:/projet2/Td5/image/image%20(6).png" alt="image 6" /> <img
+src="D:/projet2/Td5/image/image%20(7).png" alt="image 7" /></p>
+<h2 id="paramétrage-des-serveurs">5. Paramétrage des serveurs</h2>
+<p>Les serveurs du réseau sont configurés avec des adresses statiques et
+intégrés au protocole OSPF pour assurer la redondance et
+l’interconnexion :</p>
+<h3 id="serveriot-adressage-et-authentification">5.1 ServerIoT –
+Adressage et authentification</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(8).png" alt="image 8" />
+<figcaption aria-hidden="true">image 8</figcaption>
+</figure>
+<h3 id="configuration-dhcp-du-serveur">5.2 Configuration DHCP du
+serveur</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(9).png" alt="image 9" />
+<figcaption aria-hidden="true">image 9</figcaption>
+</figure>
+<h3 id="statique-ipv4-et-ipv6-sur-serveriot">5.3 Statique IPv4 et IPv6
+sur ServerIoT</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(10).png" alt="image 10" />
+<figcaption aria-hidden="true">image 10</figcaption>
+</figure>
+<h2 id="sécurité-et-optimisation">6. Sécurité et optimisation</h2>
+<p>L’authentification et le chiffrement sont des éléments essentiels à
+la sécurisation du réseau. Voici les configurations de
+<strong>IoT8</strong> montrant les paramètres de sécurité actuels et les
+éventuelles améliorations :</p>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(11).png" alt="image 11" />
+<figcaption aria-hidden="true">image 11</figcaption>
+</figure>
+<h2 id="analyse-et-amélioration">7. Analyse et amélioration</h2>
+<p>L’implémentation actuelle de <strong>OSPF</strong> garantit une
+connectivité robuste et évolutive. Des améliorations peuvent être
+apportées en intégrant un mécanisme <strong>de segmentation
+VLAN</strong> et en optimisant les méthodes de routage pour améliorer
+l’efficacité du réseau.</p>
+<p><img src="D:/projet2/Td5/image/image%20(12).png" alt="image 12" />
+<img src="D:/projet2/Td5/image/image%20(13).png" alt="image 13" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>L’implémentation du <strong>protocole OSPF</strong> dans un réseau
+permet d’assurer une <strong>gestion dynamique des routes</strong>,
+améliorant ainsi la redondance et la performance globale. Une
+sécurisation renforcée via <strong>WPA2-PSK et des authentifications
+plus robustes</strong> serait un axe d’amélioration majeur, en
+particulier dans un environnement intégrant des <strong>appareils
+IoT</strong>.</p>
+<hr />
+<h1
+id="configuration-dun-réseau-iot-dans-cisco-packet-tracer">Configuration
+d’un réseau IoT dans Cisco Packet Tracer</h1>
+<h2 id="introduction-1">Introduction</h2>
+<p>Ce rapport décrit la mise en place et la configuration d’un réseau
+<strong>IoT</strong> dans <strong>Cisco Packet Tracer</strong>, incluant
+l’architecture réseau, les paramètres des appareils, la gestion DHCP, et
+l’intégration du routage dynamique. Chaque section est accompagnée des
+<strong>captures d’écran</strong> illustrant les étapes clés.</p>
+<h2 id="topologie-du-réseau">1. Topologie du réseau</h2>
+<p>La configuration générale du réseau est illustrée ci-dessous :</p>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(14).png" alt="image 14" />
+<figcaption aria-hidden="true">image 14</figcaption>
+</figure>
+<h2 id="configuration-des-points-daccès">2. Configuration des points
+d’accès</h2>
+<p>Les <strong>points d’accès Wi-Fi</strong> sont configurés pour
+permettre aux <strong>périphériques IoT</strong> de se connecter :</p>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(15).png" alt="image 15" />
+<figcaption aria-hidden="true">image 15</figcaption>
+</figure>
+<h2 id="paramétrage-des-serveurs-dhcp">3. Paramétrage des serveurs
+DHCP</h2>
+<p>Les <strong>serveurs DHCP</strong> sont mis en place pour distribuer
+les adresses IP aux différents équipements du réseau :</p>
+<p><img src="D:/projet2/Td5/image/image%20(16).png" alt="image 16" />
+<img src="D:/projet2/Td5/image/image%20(17).png" alt="image 17" /></p>
+<h2 id="configuration-des-appareils-iot-1">4. Configuration des
+appareils IoT</h2>
+<p>Les <strong>périphériques IoT</strong> sont configurés avec leurs
+paramètres réseau et authentification.</p>
+<h3 id="iot0">4.1 IoT0</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(18).png" alt="image 18" />
+<figcaption aria-hidden="true">image 18</figcaption>
+</figure>
+<h3 id="iot3">4.2 IoT3</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(19).png" alt="image 19" />
+<figcaption aria-hidden="true">image 19</figcaption>
+</figure>
+<h3 id="iot8-1">4.3 IoT8</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(20).png" alt="image 20" />
+<figcaption aria-hidden="true">image 20</figcaption>
+</figure>
+<h2 id="sécurisation-des-accès-et-authentification">5. Sécurisation des
+accès et authentification</h2>
+<p>Les paramètres de sécurité et d’authentification des
+<strong>appareils IoT et points d’accès</strong> sont examinés :</p>
+<p><img src="D:/projet2/Td5/image/image%20(21).png" alt="image 21" />
+<img src="D:/projet2/Td5/image/image%20(22).png" alt="image 22" /></p>
+<h2 id="configuration-ospf-sur-les-routeurs">6. Configuration OSPF sur
+les routeurs</h2>
+<p>Les <strong>routeurs</strong> sont configurés avec le
+<strong>protocole de routage OSPF</strong>, assurant une
+<strong>connectivité dynamique</strong> et une <strong>résilience du
+réseau</strong>.</p>
+<h3 id="routeur-r1---configuration-ospf">6.1 Routeur R1 - Configuration
+OSPF</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(23).png" alt="image 23" />
+<figcaption aria-hidden="true">image 23</figcaption>
+</figure>
+<h3 id="routeur-r2---vérification-des-routes">6.2 Routeur R2 -
+Vérification des routes</h3>
+<p><img src="D:/projet2/Td5/image/image%20(24).png" alt="image 24" />
+<img src="D:/projet2/Td5/image/image%20(25).png" alt="image 25" /></p>
+<h2 id="tests-de-connectivité">7. Tests de connectivité</h2>
+<p>Les <strong>tests <code>ping</code> et
+<code>traceroute</code></strong> confirment la stabilité et la bonne
+communication entre les appareils :</p>
+<p><img src="D:/projet2/Td5/image/image%20(26).png" alt="image 26" />
+<img src="D:/projet2/Td5/image/image%20(27).png" alt="image 27" /></p>
+<h2 id="interface-web-du-serveur-iot">8. Interface web du serveur
+IoT</h2>
+<p>Le <strong>serveur IoT</strong> est accessible via une interface web,
+permettant de gérer les <strong>appareils connectés</strong> et définir
+des <strong>règles d’automatisation</strong>.</p>
+<h3 id="accès-au-serveur">8.1 Accès au serveur</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(28).png" alt="image 28" />
+<figcaption aria-hidden="true">image 28</figcaption>
+</figure>
+<h3 id="gestion-des-appareils">8.2 Gestion des appareils</h3>
+<p><img src="D:/projet2/Td5/image/image%20(29).png" alt="image 29" />
+<img src="D:/projet2/Td5/image/image%20(30).png" alt="image 30" /></p>
+<h3 id="paramètres-de-contrôle-et-automatisation">8.3 Paramètres de
+contrôle et automatisation</h3>
+<p><img src="D:/projet2/Td5/image/image%20(31).png" alt="image 31" />
+<img src="D:/projet2/Td5/image/image%20(32).png" alt="image 32" /></p>
+<h2 id="configuration-avancée-des-périphériques-iot">9. Configuration
+avancée des périphériques IoT</h2>
+<p>Cette section intègre les paramètres détaillés des périphériques
+IoT.</p>
+<h3 id="iot4">9.1 IoT4</h3>
+<p><img src="D:/projet2/Td5/image/image%20(33).png" alt="image 33" />
+<img src="D:/projet2/Td5/image/image%20(34).png" alt="image 34" /></p>
+<h3 id="iot5">9.2 IoT5</h3>
+<p><img src="D:/projet2/Td5/image/image%20(35).png" alt="image 35" />
+<img src="D:/projet2/Td5/image/image%20(36).png" alt="image 36" /></p>
+<h3 id="iot6">9.3 IoT6</h3>
+<p><img src="D:/projet2/Td5/image/image%20(37).png" alt="image 37" />
+<img src="D:/projet2/Td5/image/image%20(38).png" alt="image 38" /></p>
+<h3 id="iot7">9.4 IoT7</h3>
+<p><img src="D:/projet2/Td5/image/image%20(39).png" alt="image 39" />
+<img src="D:/projet2/Td5/image/image%20(40).png" alt="image 40" /></p>
+<h3 id="iot9">9.5 IoT9</h3>
+<p><img src="D:/projet2/Td5/image/image%20(41).png" alt="image 41" />
+<img src="D:/projet2/Td5/image/image%20(42).png" alt="image 42" /></p>
+<h2 id="optimisation-du-réseau">10. Optimisation du réseau</h2>
+<p>Cette section analyse les <strong>paramètres réseaux avancés</strong>
+et propose des améliorations.</p>
+<h3 id="configuration-du-serveur-iot">10.1 Configuration du serveur
+IoT</h3>
+<figure>
+<img src="D:/projet2/Td5/image/image%20(43).png" alt="image 43" />
+<figcaption aria-hidden="true">image 43</figcaption>
+</figure>
+<h3 id="vérification-des-adresses-ip">10.2 Vérification des adresses
+IP</h3>
+<p><img src="D:/projet2/Td5/image/image%20(44).png" alt="image 44" />
+<img src="D:/projet2/Td5/image/image%20(45).png" alt="image 45" /></p>
+<h3 id="analyse-des-performances-réseau">10.3 Analyse des performances
+réseau</h3>
+<p><img src="D:/projet2/Td5/image/image%20(46).png" alt="image 46" />
+<img src="D:/projet2/Td5/image/image%20(47).png" alt="image 47" /></p>
+<h3 id="tests-complémentaires">10.4 Tests complémentaires</h3>
+<p><img src="D:/projet2/Td5/image/image%20(48).png" alt="image 48" />
+<img src="D:/projet2/Td5/image/image%20(49).png" alt="image 49" /></p>
+<h3 id="finalisation-des-tests-et-ajustements">10.5 Finalisation des
+tests et ajustements</h3>
+<p><img src="D:/projet2/Td5/image/image%20(50).png" alt="image 50" />
+<img src="D:/projet2/Td5/image/image%20(51).png" alt="image 51" /> <img
+src="D:/projet2/Td5/image/image%20(52).png" alt="image 52" /> <img
+src="D:/projet2/Td5/image/image%20(53).png" alt="image 53" /></p>
+<p><img src="D:/projet2/Td5/image/image%20(55).png" alt="image 55" />
+<img src="D:/projet2/Td5/image/image%20(60).png" alt="image 60" /></p>
+<hr />
+<h2 id="conclusion-1">Conclusion</h2>
+<p>Ce rapport documente l’ensemble du <strong>processus de configuration
+d’un réseau IoT</strong> dans <strong>Cisco Packet Tracer</strong>,
+illustrant la mise en place des <strong>serveurs DHCP, des routeurs
+OSPF, des points d’accès Wi-Fi et des appareils IoT</strong>. Il met en
+avant la nécessité de sécuriser les <strong>connexions IoT</strong> et
+d’optimiser la <strong>gestion des équipements</strong> pour garantir un
+<strong>réseau performant et résilient</strong>.</p>
