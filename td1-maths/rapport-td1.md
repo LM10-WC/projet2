@@ -1,3 +1,16 @@
+
+**Institut Universitaire des Sciences**
+
+**Faculté des Sciences et Technologies**
+
+**Td1 dans le cadre du cours de Mathematique pour l'informatique**
+
+
+**Préparé par Wendy COLAS**
+
+**A l'attention de Monsieur Ismaël SAINT AMOUR**
+
+**Mai 2025**
 # Installation et test de Jupyter Notebook
 
 ## 1. Introduction
